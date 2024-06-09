@@ -34,7 +34,7 @@ const createMember = (() => {
 })();
 
 const createAvatar = (() => {
-    let idCounter = 1;
+    let idCounter = 4;
 
     return ({content = null}) => ({
         id: idCounter++,

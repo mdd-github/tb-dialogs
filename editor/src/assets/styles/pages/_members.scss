@@ -56,7 +56,7 @@
     box-shadow: $--tbd-card-shadow-size $--tbd-card-shadow-size $--tbd-card-shadow-color;
   }
 
-  &--selected, 
+  &--selected,
   &--selected:hover {
     border: 1px solid $--tbd-color-brand;
     box-shadow: $--tbd-card-shadow-size $--tbd-card-shadow-size transparentize($--tbd-color-brand, .7);
@@ -81,5 +81,42 @@
     width: 250px;
     height: 250px;
     object-fit: contain;
+  }
+}
+
+.update-avatar {
+  @extend .f-row, .f-gap-sm;
+  overflow-y: scroll;
+
+  &_list {
+    @extend .f-row, .f-align-start, .f-justify-start, .f-gap-sm;
+    flex-wrap: wrap;
+
+    padding-right: $--tbd-padding-x8;
+    border-right: 1px solid $--tbd-card-border-color;
+
+    width: calc(64px * 3 + $--tbd-padding-x4 * 6 + $--tbd-gap-sm * 3 + $--tbd-padding-x8); // Чтобы влезло ровно 3 аватарки
+
+    overflow-y: scroll;
+
+    &-item {
+      padding: $--tbd-padding-x4;
+
+      img {
+        width: 64px;
+        height: 64px;
+        object-fit: contain;
+      }
+
+      &--selected {
+        border: 1px solid $--tbd-color-brand;
+        box-shadow: $--tbd-card-shadow-size $--tbd-card-shadow-size transparentize($--tbd-color-brand, .7);
+      }
+    }
+  }
+
+  &_loader {
+    @extend .f-col, .f-align-center, .f-justify-center, .f-gap-lg, .text-center;
+    padding-left: $--tbd-padding-x8;
   }
 }

@@ -1,20 +1,10 @@
 import React, {useEffect, useMemo, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {actions} from "../../../store";
+import {UpdateAvatarModal} from "./UpdateAvatarModal";
 
 export const MemberEditCard = ({id}) => {
-    const members = useSelector((state) => state.members.list);
-    const member = useMemo(() => {
-        return members.find((member) => member.id === id);
-    }, [id, members]);
-
-    const avatars = useSelector((state) => state.members.avatars);
-    const avatar = useMemo(() => {
-        return avatars.find(({id}) => member.avatarId === id);
-    }, [avatars, member.avatarId]);
-
-    const dispatch = useDispatch();
-
+    const [isUpdateAvatarModalVisible, setIsUpdateAvatarModalVisible] = useState(false);
     const [form, setForm] = useState({
         id: -1,
         firstName: '',
@@ -23,6 +13,16 @@ export const MemberEditCard = ({id}) => {
         avatarId: 0
     });
 
+    const members = useSelector((state) => state.members.list);
+    const member = useMemo(() => {
+        return members.find((member) => member.id === id);
+    }, [id, members]);
+
+    const avatars = useSelector((state) => state.members.avatars);
+    const avatar = useMemo(() => {
+        return avatars.find(({id}) => form.avatarId === id);
+    }, [avatars, form.avatarId]);
+
     const onChange = (field, value) => {
         setForm({
             ...form,
@@ -30,6 +30,12 @@ export const MemberEditCard = ({id}) => {
         });
     };
 
+    const onUpdateAvatar = (id) => {
+        onChange('avatarId', id);
+        setIsUpdateAvatarModalVisible(false);
+    }
+
+    const dispatch = useDispatch();
     const onAddMember = () => {
         dispatch(actions.updateMember(form));
     };
@@ -55,7 +61,19 @@ export const MemberEditCard = ({id}) => {
                         src={avatar.content}
                         alt={`${member.firstName} ${member.lastName}`}
                     />
-                    <button className="button-secondary mt-12">Сменить изображение</button>
+                    <button
+                        className="button-secondary mt-12"
+                        onClick={() => setIsUpdateAvatarModalVisible(true)}
+                    >
+                        Сменить изображение
+                    </button>
+
+                    <UpdateAvatarModal
+                        isOpen={isUpdateAvatarModalVisible}
+                        onClose={() => setIsUpdateAvatarModalVisible(false)}
+                        onChange={(id) => onUpdateAvatar(id)}
+                        avatarId={form.avatarId}
+                    />
                 </div>
 
                 <div className="card flex-1">
