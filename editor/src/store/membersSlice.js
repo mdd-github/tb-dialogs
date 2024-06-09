@@ -36,12 +36,12 @@ export const membersSlice = createSlice({
                 createMember(newMember)
             ];
         },
-        removeMember: (state, { id }) => {
+        removeMember: (state, {id}) => {
             state.list = state.list.filter((member) => member.id !== id);
         },
         updateMember: (state, updatedMember) => {
             state.list = state.list.map((member) => {
-                if(member.id !== updatedMember.id) {
+                if (member.id !== updatedMember.id) {
                     return member;
                 }
 
@@ -55,10 +55,16 @@ export const membersSlice = createSlice({
                 createAvatar(newAvatar)
             ];
         },
-        removeAvatar: (state, { id }) => {
+        removeAvatar: (state, {id}) => {
             state.avatars = state.avatars.filter((avatar) => avatar.id !== id);
-        },
-
-
+        }
     }
-})
+});
+
+const {
+    addMember,
+    removeMember,
+    updateMember,
+    addAvatar,
+    removeAvatar
+} = membersSlice.actions;

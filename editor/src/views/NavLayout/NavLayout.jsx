@@ -13,13 +13,13 @@ export const NavLayout = ({children, title}) => {
 
                 <ul className="layout_header-steps">
                     <li>
-                        <Link to="/members">Сотрудники</Link>
+                        <Link to="/members">Участники диалога</Link>
                     </li>
                     <li>
-                        <Link to="/messages">Диалог</Link>
+                        <Link to="/messages">Сообщения диалога</Link>
                     </li>
                     <li>
-                        <Link to="/check">Проверка</Link>
+                        <Link to="/check">Проверка диалога</Link>
                     </li>
                 </ul>
 

@@ -1,2 +1,20 @@
 @import "../ui/variables";
 @import "../ui/shared";
+
+.members-list {
+  max-width: calc(350px + $--tbd-padding-x12);
+  height: 100%;
+
+  padding-right: $--tbd-padding-x12;
+  border-right: 1px solid $--tbd-card-border-color;
+
+  &_no-members {
+    @extend .f-col, .f-justify-center, .f-align-center, .f-gap-lg;
+    flex: 1;
+  }
+
+  &_list {
+    @extend .f-col, .f-justify-start, .f-align-stretch;
+    flex: 1;
+  }
+}
