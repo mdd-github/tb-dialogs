@@ -1,24 +1,40 @@
 import {createSlice} from "@reduxjs/toolkit";
+import {defaultAvatar} from "../assets/images/default-avatar";
 
 
 const initialState = {
-    list: [],
-    avatars: [],
+    list: [{
+        id: 1,
+        firstName: 'Иван',
+        lastName: 'Иванов',
+        description: 'Старший специалист',
+        avatarId: 0
+    }],
+    avatars: [{
+        id: 0,
+        content: defaultAvatar
+    }],
 };
 
 const createMember = (() => {
     let idCounter = 0;
 
-    return ({firstName = 'Name', lastName = 'Surname', avatarId = 0}) => ({
+    return ({
+        firstName = 'Name',
+        lastName = 'Surname',
+        avatarId = 0,
+        description = ''
+    }) => ({
         id: idCounter++,
         firstName,
         lastName,
-        avatarId
+        avatarId,
+        description
     });
 })();
 
 const createAvatar = (() => {
-    let idCounter = 0;
+    let idCounter = 1;
 
     return ({content = null}) => ({
         id: idCounter++,
@@ -30,41 +46,38 @@ export const membersSlice = createSlice({
     name: 'members',
     initialState: initialState,
     reducers: {
-        addMember: (state, newMember) => {
+        addMember: (state, {payload}) => {
+            console.log(payload)
             state.list = [
                 ...state.list,
-                createMember(newMember)
+                createMember(payload)
             ];
         },
-        removeMember: (state, {id}) => {
-            state.list = state.list.filter((member) => member.id !== id);
+        removeMember: (state, {payload}) => {
+            state.list = state.list.filter((member) => member.id !== payload.id);
         },
-        updateMember: (state, updatedMember) => {
+        updateMember: (state, {payload}) => {
             state.list = state.list.map((member) => {
-                if (member.id !== updatedMember.id) {
+                if (member.id !== payload.id) {
                     return member;
                 }
 
-                return updatedMember;
+                return payload;
             });
+
+            console.log(payload, state.list);
         },
 
-        addAvatar: (state, newAvatar) => {
+        addAvatar: (state, {payload}) => {
             state.avatars = [
                 ...state.avatars,
-                createAvatar(newAvatar)
+                createAvatar(payload)
             ];
         },
-        removeAvatar: (state, {id}) => {
-            state.avatars = state.avatars.filter((avatar) => avatar.id !== id);
+        removeAvatar: (state, {payload}) => {
+            state.avatars = state.avatars.filter((avatar) => avatar.id !== payload.id);
         }
     }
 });
 
-const {
-    addMember,
-    removeMember,
-    updateMember,
-    addAvatar,
-    removeAvatar
-} = membersSlice.actions;
+export const membersSliceActions  = membersSlice.actions;

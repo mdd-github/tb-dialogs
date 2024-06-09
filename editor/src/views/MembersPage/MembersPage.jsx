@@ -1,23 +1,25 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {NavLayout} from "../NavLayout/NavLayout";
 import {MembersList} from "./components/MembersList";
 import {BaseModal} from "../shared/BaseModal";
+import {AddMemberModal} from "./components/AddMemberModal";
+import {MemberEditCard} from "./components/MemberEditCard";
 
 export const MembersPage = () => {
+    const [selectedMemberId, setSelectedMemberId] = useState(-1);
 
     return (
         <main className="page">
             <NavLayout title="Участники диалога">
-                <>
-                    <MembersList />
-                </>
-            </NavLayout>
+                <div className="members-page">
+                    <MembersList
+                        selectedMemberId={selectedMemberId}
+                        onSelectMember={(id) => setSelectedMemberId(id)}
+                    />
 
-            <BaseModal title="Добавить участника">
-                <div>
-                    <h5>Base modal</h5>
+                    {selectedMemberId >= 0 && <MemberEditCard id={selectedMemberId} />}
                 </div>
-            </BaseModal>
+            </NavLayout>
         </main>
     )
 }

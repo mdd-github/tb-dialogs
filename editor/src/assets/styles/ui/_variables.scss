@@ -9,7 +9,7 @@ $--tbd-color-gray: #777;
 /**
  * Font sizes
  */
-$--tbd-font-sz--sm: 12px;
+$--tbd-font-sz--sm: 14px;
 $--tbd-font-sz--md: 16px;
 $--tbd-font-sz--lg: 20px;
 
@@ -73,3 +73,17 @@ $--tbd-card-padding: $--tbd-padding-x12;
 $--tbd-card-shadow-color: transparentize(#DDD, .8);
 $--tbd-card-shadow-size: $--tbd-padding;
 
+/**
+ * Input variables
+ */
+$--tbd-input-border-color: #DDD;
+$--tbd-input-border-color--focus: darken(#DDD, 10%);
+
+$--tbd-input-border-radius: $--tbd-padding-x2;
+
+$--tbd-input-padding: $--tbd-padding-x3;
+
+$--tbd-input-font-size: $--tbd-font-sz--md;
+
+$--tbd-input-shadow-color--focus: transparentize(#DDD, .9);
+$--tbd-input-shadow-size--focus: $--tbd-padding;

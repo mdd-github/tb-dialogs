@@ -26,6 +26,12 @@
 
   padding-top: calc($--tbd-card-padding + $--tbd-padding-x2); // Тупой костыль, чтобы отступ сверху красивенький был
 
+  &_content {
+    overflow-y: scroll;
+
+    /* TODO: кастомизировать скроллбар, чтобы он не был ебаным уёбищем */
+  }
+
   &_header {
     position: absolute;
     top: 0;

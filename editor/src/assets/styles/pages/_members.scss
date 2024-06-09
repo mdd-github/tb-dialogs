@@ -1,8 +1,16 @@
 @import "../ui/variables";
 @import "../ui/shared";
 
+.members-page {
+  @extend .f-row, .flex-1, .f-align-stretch;
+  overflow-y: scroll;
+}
+
 .members-list {
-  max-width: calc(350px + $--tbd-padding-x12);
+  position: sticky;
+  top: 0;
+
+  width: calc(450px + $--tbd-padding-x12);
   height: 100%;
 
   padding-right: $--tbd-padding-x12;
@@ -13,8 +21,65 @@
     flex: 1;
   }
 
+  &_actions {
+    @extend .f-col, .f-justify-center, .f-align-center, .f-gap-lg;
+
+    padding: $--tbd-padding-x6 0;
+    border-top: 1px solid $--tbd-card-border-color;
+  }
+
   &_list {
     @extend .f-col, .f-justify-start, .f-align-stretch;
     flex: 1;
+
+    padding: $--tbd-padding-x6 0;
+
+    overflow-y: scroll;
+  }
+}
+
+.member-list-item {
+  padding: calc($--tbd-card-padding / 2);
+  box-shadow: none;
+
+  &_avatar {
+    width: 96px;
+    height: 96px;
+    object-fit: contain;
+
+    border: 1px solid $--tbd-card-border-color;
+    border-radius: 50%;
+  }
+
+  &:hover {
+    cursor: pointer;
+    box-shadow: $--tbd-card-shadow-size $--tbd-card-shadow-size $--tbd-card-shadow-color;
+  }
+
+  &--selected, 
+  &--selected:hover {
+    border: 1px solid $--tbd-color-brand;
+    box-shadow: $--tbd-card-shadow-size $--tbd-card-shadow-size transparentize($--tbd-color-brand, .7);
+  }
+}
+
+.member-list-item + .member-list-item {
+  margin-top: calc($--tbd-card-padding / 4);
+}
+
+.member-edit-card {
+  flex: 1;
+  padding: $--tbd-padding-x6 0 $--tbd-padding-x6 $--tbd-padding-x12;
+
+  &_title {
+    padding-bottom: $--tbd-padding-x6;
+    margin-bottom: $--tbd-padding-x6;
+    border-bottom: 1px solid $--tbd-card-border-color;
+  }
+
+  &_avatar {
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
   }
 }

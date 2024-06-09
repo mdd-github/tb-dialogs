@@ -56,6 +56,11 @@
   gap: $--tbd-gap-lg;
 }
 
+.flex-1 {
+  flex: 1;
+}
+
+/* TODO: Переписать это уёбство с циклом */
 h1 {
   font-size: $--tbd-font-sz--h1;
 }
@@ -77,6 +82,44 @@ h6 {
 
 .text-center {
   text-align: center;
+}
+
+/* TODO: Переписать это уёбство с циклом */
+.mt-1 {
+  margin-top: $--tbd-padding;
+}
+.mt-2 {
+  margin-top: $--tbd-padding-x2;
+}
+.mt-3 {
+  margin-top: $--tbd-padding-x3;
+}
+.mt-4 {
+  margin-top: $--tbd-padding-x4;
+}
+.mt-5 {
+  margin-top: $--tbd-padding-x5;
+}
+.mt-6 {
+  margin-top: $--tbd-padding-x6;
+}
+.mt-7 {
+  margin-top: $--tbd-padding-x7;
+}
+.mt-8 {
+  margin-top: $--tbd-padding-x8;
+}
+.mt-9 {
+  margin-top: $--tbd-padding-x9;
+}
+.mt-10 {
+  margin-top: $--tbd-padding-x10;
+}
+.mt-11 {
+  margin-top: $--tbd-padding-x11;
+}
+.mt-12 {
+  margin-top: $--tbd-padding-x12;
 }
 
 .page {

@@ -1,5 +1,5 @@
 import {configureStore} from "@reduxjs/toolkit";
-import {membersSlice} from "./membersSlice";
+import {membersSlice, membersSliceActions} from "./membersSlice";
 
 
 export const store = configureStore({
@@ -7,3 +7,7 @@ export const store = configureStore({
         members: membersSlice.reducer
     }
 });
+
+export const actions = {
+    ...membersSliceActions
+};
