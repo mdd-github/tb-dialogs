@@ -1,0 +1,61 @@
+/**
+ * Color variables
+ */
+$--tbd-color-brand: #ffdd2d;
+$--tbd-color-text: #333;
+$--tbd-color-lightgray: #DDD;
+
+/**
+ * Font sizes
+ */
+$--tbd-font-sz--sm: 12px;
+$--tbd-font-sz--md: 16px;
+$--tbd-font-sz--lg: 20px;
+
+$--tbd-font-sz--h1: 26px;
+$--tbd-font-sz--h2: 24px;
+$--tbd-font-sz--h3: 22px;
+$--tbd-font-sz--h4: 20px;
+$--tbd-font-sz--h5: 18px;
+$--tbd-font-sz--h6: 16px;
+
+/**
+ * Gaps & paddings
+ */
+$--tbd-gap-sm: 8px;
+$--tbd-gap-md: 16px;
+$--tbd-gap-lg: 24px;
+
+/**
+ * Button variables
+ */
+$--tbd-button-padding-md: 12px;
+$--tbd-button-border-radius-md: calc($--tbd-button-padding-md / 2);
+
+$--tbd-button-padding-lg: 18px;
+$--tbd-button-border-radius-lg: calc($--tbd-button-padding-lg / 2);
+
+$--tbd-button-padding-sm: 10px;
+$--tbd-button-border-radius-sm: calc($--tbd-button-padding-sm / 2);
+
+$--tbd-button-bg-color-primary: $--tbd-color-brand;
+$--tbd-button-bg-color-primary--hover: lighten($--tbd-color-brand, 5%);
+$--tbd-button-bg-color-primary--active: darken($--tbd-color-brand, 10%);
+
+$--tbd-button-bg-color-secondary: $--tbd-color-lightgray;
+$--tbd-button-bg-color-secondary--hover: lighten($--tbd-color-lightgray, 5%);
+$--tbd-button-bg-color-secondary--active: darken($--tbd-color-lightgray, 10%);
+
+/**
+ * Card variables
+ */
+$--tbd-card-bg-color: #FFF;
+
+$--tbd-card-border-color: #DDD;
+$--tbd-card-border-radius: 12px;
+
+$--tbd-card-padding: 48px;
+
+$--tbd-card-shadow-color: #DDD;
+$--tbd-card-shadow-size: 6px;
+

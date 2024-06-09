@@ -1,0 +1,12 @@
+@import '../ui/shared';
+
+.home-page {
+  @extend .f-col;
+  @extend .f-justify-center;
+  @extend .f-align-center;
+}
+
+.tbank-logo-img {
+  max-width: 160px;
+  object-fit: contain;
+}
