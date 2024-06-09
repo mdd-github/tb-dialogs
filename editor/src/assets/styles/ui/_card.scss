@@ -6,6 +6,7 @@
   border: 1px solid $--tbd-card-border-color;
   border-radius: $--tbd-card-border-radius;
   padding: $--tbd-card-padding;
+  box-shadow: $--tbd-card-shadow-size $--tbd-card-shadow-size $--tbd-card-shadow-color;
 
   @extend .f-col;
 }
