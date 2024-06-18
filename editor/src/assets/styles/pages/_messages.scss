@@ -1,0 +1,71 @@
+@import "../ui/variables";
+@import "../ui/shared";
+
+.messages-page {
+  @extend .f-row, .flex-1, .f-align-stretch;
+  overflow-y: scroll;
+}
+
+.messages-list {
+  position: sticky;
+  top: 0;
+
+  width: calc(450px + $--tbd-padding-x12);
+
+  padding-right: $--tbd-padding-x12;
+  border-right: 1px solid $--tbd-card-border-color;
+
+  &_no-messages {
+    @extend .f-col, .f-justify-center, .f-align-center, .f-gap-lg;
+    flex: 1;
+  }
+
+  &_actions {
+    @extend .f-col, .f-justify-center, .f-align-center, .f-gap-lg;
+
+    padding: $--tbd-padding-x6 0;
+    border-top: 1px solid $--tbd-card-border-color;
+  }
+
+  &_list {
+    @extend .f-col, .f-justify-start, .f-align-stretch;
+    flex: 1;
+    height: calc(100% - $--tbd-padding-x6 * 3);
+
+    padding: $--tbd-padding-x6 0;
+
+    overflow-y: scroll;
+  }
+
+  &_item {
+    margin-bottom: $--tbd-padding-x4;
+
+
+    &-content {
+      @extend .f-row, .f-gap-md, .f-align-start, .f-justify-start;
+      padding: $--tbd-padding-x4;
+      background-color: transparentize($--tbd-color-lightgray, .8);
+
+      &_avatar img{
+        width: 64px;
+        height: 64px;
+        object-fit: contain;
+      }
+    }
+
+    &-content + &-action {
+      margin-top: $--tbd-padding;
+    }
+
+    &-action {
+      @extend .f-gap-sm;
+      padding: $--tbd-padding-x4;
+      border-radius: 0 0;
+
+      &--buttons {
+        @extend .f-gap-sm, .f-justify-start, .f-row, .f-align-center;
+        flex-wrap: wrap;
+      }
+    }
+  }
+}

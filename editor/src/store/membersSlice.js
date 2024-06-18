@@ -4,7 +4,7 @@ import {defaultAvatar} from "../assets/images/default-avatar";
 
 const initialState = {
     list: [{
-        id: 1,
+        id: 0,
         firstName: 'Иван',
         lastName: 'Иванов',
         description: 'Старший специалист',
@@ -44,7 +44,7 @@ const createAvatar = (() => {
 
 export const membersSlice = createSlice({
     name: 'members',
-    initialState: initialState,
+    initialState,
     reducers: {
         addMember: (state, {payload}) => {
             console.log(payload)
@@ -53,9 +53,9 @@ export const membersSlice = createSlice({
                 createMember(payload)
             ];
         },
-        removeMember: (state, {payload}) => {
+        /*removeMember: (state, {payload}) => {
             state.list = state.list.filter((member) => member.id !== payload.id);
-        },
+        },*/
         updateMember: (state, {payload}) => {
             state.list = state.list.map((member) => {
                 if (member.id !== payload.id) {
@@ -73,11 +73,9 @@ export const membersSlice = createSlice({
                 ...state.avatars,
                 createAvatar(payload)
             ];
-        },
+        }/*,
         removeAvatar: (state, {payload}) => {
             state.avatars = state.avatars.filter((avatar) => avatar.id !== payload.id);
-        }
+        }*/
     }
 });
-
-export const membersSliceActions  = membersSlice.actions;

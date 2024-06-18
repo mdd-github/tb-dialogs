@@ -37,7 +37,7 @@ export const MemberEditCard = ({id}) => {
 
     const dispatch = useDispatch();
     const onAddMember = () => {
-        dispatch(actions.updateMember(form));
+        dispatch(actions.members.updateMember(form));
     };
 
     useEffect(() => {

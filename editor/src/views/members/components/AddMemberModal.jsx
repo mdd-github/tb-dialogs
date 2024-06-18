@@ -30,7 +30,7 @@ export const AddMemberModal = ({isOpen, onClose}) => {
     }
 
     const onAddMember = () => {
-        dispatch(actions.addMember(form));
+        dispatch(actions.members.addMember(form));
         onResetAndClose();
     };
 

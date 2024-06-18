@@ -1,13 +1,16 @@
 import {configureStore} from "@reduxjs/toolkit";
-import {membersSlice, membersSliceActions} from "./membersSlice";
+import {membersSlice} from "./membersSlice";
+import {messagesSlice} from "./messagesSlice";
 
 
 export const store = configureStore({
     reducer: {
-        members: membersSlice.reducer
+        members: membersSlice.reducer,
+        messages: messagesSlice.reducer,
     }
 });
 
 export const actions = {
-    ...membersSliceActions
+    members: {...membersSlice.actions},
+    messages: {...messagesSlice.actions}
 };

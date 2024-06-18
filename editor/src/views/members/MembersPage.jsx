@@ -1,8 +1,6 @@
 import React, {useState} from 'react';
-import {NavLayout} from "../NavLayout/NavLayout";
+import {NavLayout} from "../shared/NavLayout";
 import {MembersList} from "./components/MembersList";
-import {BaseModal} from "../shared/BaseModal";
-import {AddMemberModal} from "./components/AddMemberModal";
 import {MemberEditCard} from "./components/MemberEditCard";
 
 export const MembersPage = () => {

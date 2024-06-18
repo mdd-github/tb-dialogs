@@ -16,7 +16,7 @@ export const UpdateAvatarModal = ({isOpen, onClose, avatarId, onChange}) => {
             reader.readAsDataURL(fileInput.files[0]);
 
             reader.onload = (e) => {
-                dispatch(actions.addAvatar({
+                dispatch(actions.members.addAvatar({
                     content: e.target.result
                 }));
 
