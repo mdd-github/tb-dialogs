@@ -15,16 +15,16 @@ export const MessageItem = ({message}) => {
     return (
         <div
             className={C({
-                'messages-list_item': 1,
-                'messages-list_item--with-action': message.userAction
+                'messages-list-item': 1,
+                'messages-list-item--with-action': message.userAction
             })}
         >
-            <div className="card messages-list_item-content">
-                <div className="messages-list_item-content_avatar">
+            <div className="card messages-list-item-content">
+                <div className="messages-list-item-content_avatar">
                     <img src={avatar.content}/>
                 </div>
 
-                <div className="messages-list_item-content_text">
+                <div className="messages-list-item-content_text">
                     <h5>{member.firstName} {member.lastName}</h5>
                     <span>
                         { message.content }
@@ -35,7 +35,7 @@ export const MessageItem = ({message}) => {
             {
                 message.userAction?.type === 'TEXT' && (
                     <div
-                        className="card messages-list_item-action  messages-list_item-content--text"
+                        className="card messages-list-item-action  messages-list-item-content--text"
                     >
                         Пользователь вводит текст
                     </div>
@@ -44,10 +44,10 @@ export const MessageItem = ({message}) => {
             {
                 message.userAction?.type === 'BUTTONS' && (
                     <div
-                        className="card messages-list_item-action"
+                        className="card messages-list-item-action"
                     >
                         <h6>Пользователь выбирает один из вариантов:</h6>
-                        <div className="messages-list_item-action--buttons">
+                        <div className="messages-list-item-action--buttons">
                             {message.userAction.buttons.map((button) => (
                                 <button type="button" key={button.id} className="button-sm">
                                     {button.content}

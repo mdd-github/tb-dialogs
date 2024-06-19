@@ -52,6 +52,7 @@
 
   &_body {
     height: 100%;
+    max-height: calc(100% - $--tbd-card-padding * 2);
     flex: 1;
 
     & > * {

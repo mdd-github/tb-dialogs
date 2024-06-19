@@ -10,7 +10,8 @@
   position: sticky;
   top: 0;
 
-  width: calc(450px + $--tbd-padding-x12);
+  width: calc(650px + $--tbd-padding-x12);
+  height: 100%;
 
   padding-right: $--tbd-padding-x12;
   border-right: 1px solid $--tbd-card-border-color;
@@ -30,14 +31,13 @@
   &_list {
     @extend .f-col, .f-justify-start, .f-align-stretch;
     flex: 1;
-    height: calc(100% - $--tbd-padding-x6 * 3);
 
     padding: $--tbd-padding-x6 0;
 
     overflow-y: scroll;
   }
 
-  &_item {
+  /*&_item {
     margin-bottom: $--tbd-padding-x4;
 
 
@@ -67,5 +67,40 @@
         flex-wrap: wrap;
       }
     }
+  }*/
+}
+
+.messages-list-item {
+  &-content {
+    @extend .f-row, .f-gap-md, .f-align-start, .f-justify-start;
+    padding: $--tbd-padding-x4;
+    background-color: transparentize($--tbd-color-lightgray, .8);
+    margin-right: $--tbd-padding-x12;
+
+    &_avatar img{
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+    }
   }
+
+  &-content + &-action {
+    margin-top: calc($--tbd-card-padding / 2);
+  }
+
+  &-action {
+    @extend .f-gap-sm;
+    padding: $--tbd-padding-x4;
+
+    margin-left: $--tbd-padding-x12;
+
+    &--buttons {
+      @extend .f-gap-sm, .f-justify-start, .f-row, .f-align-center;
+      flex-wrap: wrap;
+    }
+  }
+}
+
+.messages-list-item + .messages-list-item {
+  margin-top: calc($--tbd-card-padding / 2);
 }
