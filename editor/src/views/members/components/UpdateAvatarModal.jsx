@@ -6,7 +6,7 @@ import {actions} from "../../../store";
 
 export const UpdateAvatarModal = ({isOpen, onClose, avatarId, onChange}) => {
     const dispatch = useDispatch();
-    const avatars = useSelector((state) => state.members.avatars);
+    const avatars = useSelector((state) => state.avatars.list);
 
     const onUploadImage = () => {
         const fileInput = document.createElement('input');
@@ -16,7 +16,7 @@ export const UpdateAvatarModal = ({isOpen, onClose, avatarId, onChange}) => {
             reader.readAsDataURL(fileInput.files[0]);
 
             reader.onload = (e) => {
-                dispatch(actions.members.addAvatar({
+                dispatch(actions.avatars.add({
                     content: e.target.result
                 }));
 

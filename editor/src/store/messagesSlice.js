@@ -83,3 +83,7 @@ export const messagesSlice = createSlice({
 
     }
 });
+
+export const messagesActions = {
+    ...messagesSlice.actions
+}

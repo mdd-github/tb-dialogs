@@ -1,13 +1,12 @@
 import C from "classnames";
 import {useSelector} from "react-redux";
 import {useMemo} from "react";
+import {useMember} from "../../../hooks/useMember";
+import {useAvatar} from "../../../hooks/useAvatar";
 
 export const MessageItem = ({message}) => {
-    const members = useSelector((state) => state.members.list);
-    const avatars = useSelector((state) => state.members.avatars);
-
-    const member = useMemo(() => members.find((member) => member.id === message.authorId), [members, message.authorId]);
-    const avatar = useMemo(() => avatars.find((avatar) => avatar.id === member?.avatarId), [avatars, member?.avatarId]);
+    const member = useMember(message.authorId);
+    const avatar = useAvatar(member?.avatarId);
 
     if(!member || !avatar) {
         return null;

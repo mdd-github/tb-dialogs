@@ -13,7 +13,9 @@ export const MembersList = ({selectedMemberId, onSelectMember}) => {
         <div className="members-list f-col f-justify-start f-align-stretch">
 
             {
-                members.length === 0 && <NoMembersMessage onCreate={() => setIsAddMemberModalVisible(true)} />
+                members.length === 0 && (
+                    <NoMembersMessage onCreate={() => setIsAddMemberModalVisible(true)}/>
+                )
             }
 
             {

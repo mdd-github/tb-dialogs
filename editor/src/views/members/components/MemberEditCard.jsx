@@ -1,47 +1,41 @@
 import React, {useEffect, useMemo, useState} from 'react';
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {actions} from "../../../store";
 import {UpdateAvatarModal} from "./UpdateAvatarModal";
+import {useAvatar} from "../../../hooks/useAvatar";
+import {useMember} from "../../../hooks/useMember";
+import {useForm} from "../../../hooks/useForm";
 
 export const MemberEditCard = ({id}) => {
     const [isUpdateAvatarModalVisible, setIsUpdateAvatarModalVisible] = useState(false);
-    const [form, setForm] = useState({
+
+    const {onChangeById, updateValue, values, valid, setValues, touchedFields} = useForm({
         id: -1,
         firstName: '',
         lastName: '',
         description: '',
         avatarId: 0
+    }, {
+        firstName: 'required',
+        lastName: 'required'
     });
 
-    const members = useSelector((state) => state.members.list);
-    const member = useMemo(() => {
-        return members.find((member) => member.id === id);
-    }, [id, members]);
+    const member = useMember(id);
+    const avatar = useAvatar(values.avatarId)
 
-    const avatars = useSelector((state) => state.members.avatars);
-    const avatar = useMemo(() => {
-        return avatars.find(({id}) => form.avatarId === id);
-    }, [avatars, form.avatarId]);
-
-    const onChange = (field, value) => {
-        setForm({
-            ...form,
-            [field]: value
-        });
-    };
 
     const onUpdateAvatar = (id) => {
-        onChange('avatarId', id);
+        updateValue('avatarId', id);
         setIsUpdateAvatarModalVisible(false);
     }
 
     const dispatch = useDispatch();
     const onAddMember = () => {
-        dispatch(actions.members.updateMember(form));
+        dispatch(actions.members.update(values));
     };
 
     useEffect(() => {
-        setForm({
+        setValues({
             id: member.id,
             firstName: member.firstName,
             lastName: member.lastName,
@@ -49,6 +43,8 @@ export const MemberEditCard = ({id}) => {
             avatarId: member.avatarId
         });
     }, [member]);
+
+    const saveButtonDisabled = useMemo(() => (!valid || touchedFields.length === 0), [touchedFields.length, valid])
 
     return (
         <div className="member-edit-card f-align-stretch">
@@ -72,7 +68,7 @@ export const MemberEditCard = ({id}) => {
                         isOpen={isUpdateAvatarModalVisible}
                         onClose={() => setIsUpdateAvatarModalVisible(false)}
                         onChange={(id) => onUpdateAvatar(id)}
-                        avatarId={form.avatarId}
+                        avatarId={values.avatarId}
                     />
                 </div>
 
@@ -82,8 +78,8 @@ export const MemberEditCard = ({id}) => {
                         <input
                             type="text"
                             id="firstName"
-                            value={form.firstName}
-                            onChange={(e) => onChange('firstName', e.target.value)}
+                            value={values.firstName}
+                            onChange={onChangeById}
                         />
                     </div>
                     <div className="field">
@@ -91,21 +87,21 @@ export const MemberEditCard = ({id}) => {
                         <input
                             type="text"
                             id="lastName"
-                            value={form.lastName}
-                            onChange={(e) => onChange('lastName', e.target.value)}
+                            value={values.lastName}
+                            onChange={onChangeById}
                         />
                     </div>
                     <div className="field">
                         <label htmlFor="firstName">Информация об участнике:</label>
                         <textarea
                             id="description"
-                            value={form.description}
+                            value={values.description}
                             rows="3"
-                            onChange={(e) => onChange('description', e.target.value)}
+                            onChange={onChangeById}
                         />
                     </div>
 
-                    <button type="button" className="button mt-8" onClick={onAddMember}>
+                    <button type="button" className="button mt-8" onClick={onAddMember} disabled={saveButtonDisabled}>
                         Сохранить данные
                     </button>
                 </div>

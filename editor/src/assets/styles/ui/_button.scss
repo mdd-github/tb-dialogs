@@ -29,6 +29,12 @@
   &:active {
     background-color: $--tbd-button-bg-color-primary--active;
   }
+
+  &:disabled {
+    cursor: default;
+    color: $--tbd-color-gray;
+    background-color: $--tbd-color-lightgray;
+  }
 }
 
 .button-lg {

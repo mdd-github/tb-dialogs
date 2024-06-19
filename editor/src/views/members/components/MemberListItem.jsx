@@ -1,13 +1,9 @@
-import React, {useMemo} from 'react';
-import {useSelector} from "react-redux";
+import React from 'react';
 import C from "classnames";
+import {useAvatar} from "../../../hooks/useAvatar";
 
 export const MemberListItem = ({member, isSelected, onSelect}) => {
-    const avatars = useSelector((state) => state.members.avatars);
-
-    const avatar = useMemo(() => {
-        return avatars.find(({id}) => member.avatarId === id);
-    }, [avatars, member.avatarId]);
+    const avatar = useAvatar(member.avatarId);
 
     return (
         <div

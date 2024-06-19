@@ -1,36 +1,28 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {BaseModal} from "../../shared/BaseModal";
 import {useDispatch} from "react-redux";
 import {actions} from "../../../store";
+import {useForm} from "../../../hooks/useForm";
 
-// TODO: Добавить ссаную валидацию полей
 export const AddMemberModal = ({isOpen, onClose}) => {
     const dispatch = useDispatch();
 
-    const [form, setForm] = useState({
+    const {values, resetValues, onChangeById, valid} = useForm({
         firstName: '',
         lastName: '',
         description: ''
+    }, {
+        firstName: 'required',
+        lastName: 'required'
     });
 
-    const onChange = (field, value) => {
-        setForm({
-            ...form,
-            [field]: value
-        });
-    };
-
     const onResetAndClose = () => {
-        setForm({
-            firstName: '',
-            lastName: '',
-            description: ''
-        });
+        resetValues();
         onClose?.();
     }
 
     const onAddMember = () => {
-        dispatch(actions.members.addMember(form));
+        dispatch(actions.members.add(values));
         onResetAndClose();
     };
 
@@ -42,8 +34,8 @@ export const AddMemberModal = ({isOpen, onClose}) => {
                     <input
                         type="text"
                         id="firstName"
-                        value={form.firstName}
-                        onChange={(e) => onChange('firstName', e.target.value)}
+                        value={values.firstName}
+                        onChange={onChangeById}
                     />
                 </div>
                 <div className="field">
@@ -51,21 +43,26 @@ export const AddMemberModal = ({isOpen, onClose}) => {
                     <input
                         type="text"
                         id="lastName"
-                        value={form.lastName}
-                        onChange={(e) => onChange('lastName', e.target.value)}
+                        value={values.lastName}
+                        onChange={onChangeById}
                     />
                 </div>
                 <div className="field">
                     <label htmlFor="firstName">Информация об участнике:</label>
                     <textarea
                         id="description"
-                        value={form.description}
+                        value={values.description}
                         rows="3"
-                        onChange={(e) => onChange('description', e.target.value)}
+                        onChange={onChangeById}
                     />
                 </div>
 
-                <button type="button" className="button mt-8" onClick={onAddMember}>
+                <button
+                    type="button"
+                    className="button mt-8"
+                    onClick={onAddMember}
+                    disabled={!valid}
+                >
                     Добавить участника
                 </button>
             </div>

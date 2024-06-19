@@ -1,23 +1,17 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {defaultAvatar} from "../assets/images/default-avatar";
 
-
-const initialState = {
+const INITIAL_STATE = {
     list: [{
         id: 0,
         firstName: 'Иван',
         lastName: 'Иванов',
         description: 'Старший специалист',
         avatarId: 0
-    }],
-    avatars: [{
-        id: 0,
-        content: defaultAvatar
-    }],
+    }]
 };
 
 const createMember = (() => {
-    let idCounter = 0;
+    let idCounter = INITIAL_STATE.list.length + 1;
 
     return ({
         firstName = 'Name',
@@ -33,30 +27,20 @@ const createMember = (() => {
     });
 })();
 
-const createAvatar = (() => {
-    let idCounter = 4;
-
-    return ({content = null}) => ({
-        id: idCounter++,
-        content
-    });
-})();
-
 export const membersSlice = createSlice({
     name: 'members',
-    initialState,
+    initialState: INITIAL_STATE,
     reducers: {
-        addMember: (state, {payload}) => {
-            console.log(payload)
+        add: (state, {payload}) => {
             state.list = [
                 ...state.list,
                 createMember(payload)
             ];
         },
-        /*removeMember: (state, {payload}) => {
+        remove: (state, {payload}) => {
             state.list = state.list.filter((member) => member.id !== payload.id);
-        },*/
-        updateMember: (state, {payload}) => {
+        },
+        update: (state, {payload}) => {
             state.list = state.list.map((member) => {
                 if (member.id !== payload.id) {
                     return member;
@@ -64,18 +48,10 @@ export const membersSlice = createSlice({
 
                 return payload;
             });
-
-            console.log(payload, state.list);
         },
-
-        addAvatar: (state, {payload}) => {
-            state.avatars = [
-                ...state.avatars,
-                createAvatar(payload)
-            ];
-        }/*,
-        removeAvatar: (state, {payload}) => {
-            state.avatars = state.avatars.filter((avatar) => avatar.id !== payload.id);
-        }*/
     }
 });
+
+export const membersActions = {
+    ...membersSlice.actions
+}
