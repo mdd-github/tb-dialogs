@@ -1,9 +1,12 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {useSelector} from "react-redux";
 import {MessageItem} from "./MessageItem";
+import {AddMessageModal} from "./AddMessageModal";
 
-export const MessagesList = ({onCreateMessage, onEditMessage}) => {
+export const MessagesList = ({onEditMessage}) => {
     const messages = useSelector((state) => state.messages.list);
+
+    const [isAddMessageModalOpenned, setIsAddMessageModalOpenned] = useState(false);
 
     return (
         <div className="messages-list f-col f-justify-start f-align-stretch">
@@ -16,13 +19,18 @@ export const MessagesList = ({onCreateMessage, onEditMessage}) => {
                             ))}
                         </div>
                         <div className="members-list_actions">
-                            <button className="button" onClick={() => {}}>
+                            <button className="button" onClick={() => setIsAddMessageModalOpenned(true)}>
                                 Добавить участника
                             </button>
                         </div>
                     </>
                 )
             }
+
+            <AddMessageModal
+                isOpen={isAddMessageModalOpenned}
+                onClose={() => setIsAddMessageModalOpenned(false)}
+            />
         </div>
     )
 }

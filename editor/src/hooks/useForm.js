@@ -8,8 +8,25 @@ const required = (value) => {
     return null;
 }
 
+const userActionButtons = (value, formValues) => {
+    if(formValues.userActionType !== 'BUTTONS') {
+        return null;
+    }
+
+    if(value.length === 0) {
+        return 'Добавьте минимум один вариант';
+    }
+
+    if(value.find((x) => x.content.length !== 0) == null) {
+        return 'Добавьте минимум один вариант и заполните его';
+    }
+
+    return null;
+}
+
 const validationRules = {
-    required
+    required,
+    userActionButtons
 }
 
 export const useForm = (initialValues, validationSchema) => {
@@ -22,7 +39,7 @@ export const useForm = (initialValues, validationSchema) => {
 
         let firstError = null;
         for (let rule of rules) {
-            firstError = validationRules[rule]?.(values[key]);
+            firstError = validationRules[rule]?.(values[key], values);
             if (firstError != null) {
                 break;
             }

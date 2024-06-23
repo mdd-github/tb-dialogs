@@ -1,7 +1,7 @@
 import {createSlice} from "@reduxjs/toolkit";
 
 
-const initialState = {
+const INITIAL_STATE = {
     list: [
         {
             id: 0,
@@ -76,11 +76,27 @@ const initialState = {
     ]
 };
 
+const createMessage = (() => {
+    let idCounter = INITIAL_STATE.list.length + 1;
+
+    return ({authorId, content, userAction}) => ({
+        id: idCounter++,
+        authorId,
+        content,
+        userAction
+    });
+})();
+
 export const messagesSlice = createSlice({
     name: 'messages',
-    initialState,
+    initialState: INITIAL_STATE,
     reducers: {
-
+        add: (state, { payload }) => {
+            state.list = [
+                ...state.list,
+                createMessage(payload)
+            ];
+        }
     }
 });
 
