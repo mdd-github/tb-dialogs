@@ -42,6 +42,9 @@ export const avatarsSlice = createSlice({
                 ...state.list,
                 createAvatar(payload),
             ];
+        },
+        set: (state, { payload }) => {
+            state.list = payload
         }
     },
     extraReducers: (builder) => {

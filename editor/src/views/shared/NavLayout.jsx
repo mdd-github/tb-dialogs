@@ -2,9 +2,10 @@ import React from "react";
 
 import TBankLogo from '../../assets/images/tinkoff-logo.svg';
 import {Link} from "react-router-dom";
+import {useSaveDialog} from "../../hooks/useSaveDialog";
 
 export const NavLayout = ({children, title}) => {
-
+    const { save } = useSaveDialog();
 
     return (
         <div className="layout">
@@ -25,7 +26,7 @@ export const NavLayout = ({children, title}) => {
 
                 <ul className="layout_header-actions">
                     <li>
-                        <button className="button-secondary-sm">Сохранить в файл</button>
+                        <button className="button-secondary-sm" onClick={save}>Сохранить в файл</button>
                     </li>
                     <li>
                         <button className="button-sm">Сгенерировать ZIP</button>

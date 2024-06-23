@@ -105,6 +105,9 @@ export const messagesSlice = createSlice({
 
                 return payload;
             });
+        },
+        set: (state, { payload }) => {
+            state.list = payload
         }
     }
 });

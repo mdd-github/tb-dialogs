@@ -49,6 +49,9 @@ export const membersSlice = createSlice({
                 return payload;
             });
         },
+        set: (state, { payload }) => {
+            state.list = payload
+        }
     }
 });
 

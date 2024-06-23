@@ -2,9 +2,12 @@ import React from 'react';
 
 import TBankLogo from '../assets/images/tinkoff-logo.svg';
 import {useNavigate} from "react-router-dom";
+import {useOpenDialog} from "../hooks/useOpenDialog";
 
 export const HomePage = () => {
-    let navigate = useNavigate();
+    const navigate = useNavigate();
+    const {open} = useOpenDialog();
+
 
     const onCreateButtonClick = () => {
         navigate("/members");
@@ -20,7 +23,7 @@ export const HomePage = () => {
 
                     <div className="f-row f-justify-center f-gap-md">
                         <button className="button" onClick={onCreateButtonClick}>Создать</button>
-                        <button className="button-secondary">Загрузить из файла</button>
+                        <button className="button-secondary" onClick={open}>Загрузить из файла</button>
                     </div>
                 </div>
             </div>
