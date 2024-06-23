@@ -1,5 +1,5 @@
 import React, {useEffect, useMemo, useState} from 'react';
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {actions} from "../../../store";
 import {UpdateAvatarModal} from "./UpdateAvatarModal";
 import {useAvatar} from "../../../hooks/useAvatar";

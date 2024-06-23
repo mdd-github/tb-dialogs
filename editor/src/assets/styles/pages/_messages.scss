@@ -10,7 +10,7 @@
   position: sticky;
   top: 0;
 
-  width: calc(650px + $--tbd-padding-x12);
+  width: calc(800px + $--tbd-padding-x12);
   height: 100%;
 
   padding-right: $--tbd-padding-x12;
@@ -36,38 +36,6 @@
 
     overflow-y: scroll;
   }
-
-  /*&_item {
-    margin-bottom: $--tbd-padding-x4;
-
-
-    &-content {
-      @extend .f-row, .f-gap-md, .f-align-start, .f-justify-start;
-      padding: $--tbd-padding-x4;
-      background-color: transparentize($--tbd-color-lightgray, .8);
-
-      &_avatar img{
-        width: 64px;
-        height: 64px;
-        object-fit: contain;
-      }
-    }
-
-    &-content + &-action {
-      margin-top: $--tbd-padding;
-    }
-
-    &-action {
-      @extend .f-gap-sm;
-      padding: $--tbd-padding-x4;
-      border-radius: 0 0;
-
-      &--buttons {
-        @extend .f-gap-sm, .f-justify-start, .f-row, .f-align-center;
-        flex-wrap: wrap;
-      }
-    }
-  }*/
 }
 
 .messages-list-item {
@@ -103,4 +71,15 @@
 
 .messages-list-item + .messages-list-item {
   margin-top: calc($--tbd-card-padding / 2);
+}
+
+.message-edit-card {
+  flex: 1;
+  padding: $--tbd-padding-x6 0 $--tbd-padding-x6 $--tbd-padding-x12;
+
+  &_title {
+    padding-bottom: $--tbd-padding-x6;
+    margin-bottom: $--tbd-padding-x6;
+    border-bottom: 1px solid $--tbd-card-border-color;
+  }
 }

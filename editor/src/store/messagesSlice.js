@@ -96,6 +96,15 @@ export const messagesSlice = createSlice({
                 ...state.list,
                 createMessage(payload)
             ];
+        },
+        update: (state, { payload }) => {
+            state.list = state.list.map((message) => {
+                if (message.id !== payload.id) {
+                    return message;
+                }
+
+                return payload;
+            });
         }
     }
 });

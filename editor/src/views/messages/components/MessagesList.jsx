@@ -3,7 +3,7 @@ import {useSelector} from "react-redux";
 import {MessageItem} from "./MessageItem";
 import {AddMessageModal} from "./AddMessageModal";
 
-export const MessagesList = ({onEditMessage}) => {
+export const MessagesList = ({onSelectMessage}) => {
     const messages = useSelector((state) => state.messages.list);
 
     const [isAddMessageModalOpenned, setIsAddMessageModalOpenned] = useState(false);
@@ -15,7 +15,7 @@ export const MessagesList = ({onEditMessage}) => {
                     <>
                         <div className="messages-list_list">
                             {messages.map((message) => (
-                                <MessageItem key={message.id} message={message} />
+                                <MessageItem key={message.id} message={message} onClick={() => onSelectMessage?.(message.id)} />
                             ))}
                         </div>
                         <div className="members-list_actions">

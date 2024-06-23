@@ -4,7 +4,7 @@ import {useMemo} from "react";
 import {useMember} from "../../../hooks/useMember";
 import {useAvatar} from "../../../hooks/useAvatar";
 
-export const MessageItem = ({message}) => {
+export const MessageItem = ({message, onClick}) => {
     const member = useMember(message.authorId);
     const avatar = useAvatar(member?.avatarId);
 
@@ -18,6 +18,7 @@ export const MessageItem = ({message}) => {
                 'messages-list-item': 1,
                 'messages-list-item--with-action': message.userAction
             })}
+            onClick={() => onClick?.()}
         >
             <div className="card messages-list-item-content">
                 <div className="messages-list-item-content_avatar">
