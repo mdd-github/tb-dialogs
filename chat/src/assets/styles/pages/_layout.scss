@@ -59,7 +59,9 @@
       flex: 1;
 
       height: calc(100% - $--tbd-padding-x8 * 2);
-      margin: $--tbd-padding-x8 $--tbd-padding-x12;
+      margin: $--tbd-padding-x8 auto;
+
+      width: 1000px;
     }
   }
 }

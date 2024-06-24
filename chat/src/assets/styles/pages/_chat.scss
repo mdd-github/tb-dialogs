@@ -1,0 +1,64 @@
+@import "../ui/variables";
+@import "../ui/shared";
+
+.chat-view {
+  @extend .f-col, .f-align-stretch;
+  height: 100%;
+
+  &_messages {
+    flex: 1;
+
+    overflow: scroll;
+
+    margin-bottom: $--tbd-padding-x6;
+  }
+}
+
+.user-input {
+  @extend .f-row, .f-justify-between, .f-align-center, .f-gap-md;
+
+  border-top: 1px solid $--tbd-card-border-color;
+
+  height: 150px;
+
+  &_textarea {
+    flex: 1;
+
+    textarea {
+      width: 100%;
+    }
+  }
+
+  &_buttons {
+    @extend .f-row, .f-justify-between, .f-align-center, .f-gap-md;
+    flex-wrap: wrap;
+  }
+}
+
+.chat-message {
+    @extend .f-row, .f-gap-md, .f-align-start, .f-justify-start;
+    padding: $--tbd-padding-x4;
+    background-color: transparentize($--tbd-color-lightgray, .8);
+    margin-right: $--tbd-padding-x12;
+
+    &_avatar img{
+      width: 64px;
+      height: 64px;
+      object-fit: contain;
+    }
+
+  &--user {
+    margin-right: 0;
+    margin-left: $--tbd-padding-x12;
+  }
+
+  &--member {
+    background-color: white;
+    margin-right: $--tbd-padding-x12;
+    margin-left: 0;
+  }
+}
+
+.chat-message + .chat-message {
+  margin-top: calc($--tbd-card-padding / 2);
+}
