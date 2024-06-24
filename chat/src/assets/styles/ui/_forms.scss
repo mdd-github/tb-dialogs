@@ -1,0 +1,73 @@
+@import "variables";
+@import "shared";
+
+.field {
+  @extend .f-col, .f-align-stretch, .f-justify-start;
+
+  label {
+    font-size: $--tbd-font-sz--sm;
+    color: $--tbd-color-text;
+  }
+
+  input,
+  textarea {
+    margin-top: $--tbd-padding;
+    width: 100%;
+  }
+}
+
+.field + .field {
+  margin-top: $--tbd-padding-x4;
+}
+
+input[type=text],
+textarea,
+select {
+  font-size: $--tbd-input-font-size;
+
+  border-radius: $--tbd-input-border-radius;
+  border: 1px solid $--tbd-input-border-color;
+
+  padding: $--tbd-input-padding;
+
+  color: $--tbd-color-text;
+
+  outline: none;
+  box-shadow: none;
+
+  resize: none;
+
+  &:focus {
+    box-shadow: $--tbd-input-shadow-size--focus $--tbd-input-shadow-size--focus $--tbd-input-shadow-color--focus;
+    border-color: $--tbd-input-border-color--focus;
+  }
+}
+
+.select-wrapper {
+  position: relative;
+  width: 100%;
+
+  select {
+    width: 100%;
+
+    appearance: none;
+    /* safari */
+    -webkit-appearance: none;
+
+    cursor: pointer;
+  }
+
+  &:before {
+    position: absolute;
+    content: "";
+    right: $--tbd-input-padding;
+    top: 50%;
+    pointer-events: none;
+
+    transform: translateY(-50%);
+
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid $--tbd-input-border-color--focus;
+  }
+}

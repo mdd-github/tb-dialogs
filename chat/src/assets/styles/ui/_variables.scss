@@ -1,0 +1,89 @@
+/**
+ * Color variables
+ */
+$--tbd-color-brand: #ffdd2d;
+$--tbd-color-text: #333;
+$--tbd-color-lightgray: #DDD;
+$--tbd-color-gray: #777;
+
+/**
+ * Font sizes
+ */
+$--tbd-font-sz--sm: 14px;
+$--tbd-font-sz--md: 16px;
+$--tbd-font-sz--lg: 20px;
+
+$--tbd-font-sz--h1: 26px;
+$--tbd-font-sz--h2: 24px;
+$--tbd-font-sz--h3: 22px;
+$--tbd-font-sz--h4: 20px;
+$--tbd-font-sz--h5: 18px;
+$--tbd-font-sz--h6: 16px;
+
+/**
+ * Gaps & paddings
+ */
+$--tbd-gap-sm: 8px;
+$--tbd-gap-md: 16px;
+$--tbd-gap-lg: 24px;
+
+$--tbd-padding: 4px;
+$--tbd-padding-x2: calc($--tbd-padding * 2);
+$--tbd-padding-x3: calc($--tbd-padding * 3);
+$--tbd-padding-x4: calc($--tbd-padding * 4);
+$--tbd-padding-x5: calc($--tbd-padding * 5);
+$--tbd-padding-x6: calc($--tbd-padding * 6);
+$--tbd-padding-x7: calc($--tbd-padding * 7);
+$--tbd-padding-x8: calc($--tbd-padding * 8);
+$--tbd-padding-x9: calc($--tbd-padding * 9);
+$--tbd-padding-x10: calc($--tbd-padding * 10);
+$--tbd-padding-x11: calc($--tbd-padding * 11);
+$--tbd-padding-x12: calc($--tbd-padding * 12);
+
+/**
+ * Button variables
+ */
+$--tbd-button-padding-md: $--tbd-padding-x3;
+$--tbd-button-border-radius-md: calc($--tbd-button-padding-md / 2);
+
+$--tbd-button-padding-lg: $--tbd-padding-x4;
+$--tbd-button-border-radius-lg: calc($--tbd-button-padding-lg / 2);
+
+$--tbd-button-padding-sm: $--tbd-padding-x2;
+$--tbd-button-border-radius-sm: calc($--tbd-button-padding-sm / 2);
+
+$--tbd-button-bg-color-primary: $--tbd-color-brand;
+$--tbd-button-bg-color-primary--hover: lighten($--tbd-color-brand, 5%);
+$--tbd-button-bg-color-primary--active: darken($--tbd-color-brand, 10%);
+
+$--tbd-button-bg-color-secondary: $--tbd-color-lightgray;
+$--tbd-button-bg-color-secondary--hover: lighten($--tbd-color-lightgray, 5%);
+$--tbd-button-bg-color-secondary--active: darken($--tbd-color-lightgray, 10%);
+
+/**
+ * Card variables
+ */
+$--tbd-card-bg-color: #FFF;
+
+$--tbd-card-border-color: #DDD;
+$--tbd-card-border-radius: $--tbd-padding-x3;
+
+$--tbd-card-padding: $--tbd-padding-x12;
+
+$--tbd-card-shadow-color: transparentize(#DDD, .8);
+$--tbd-card-shadow-size: $--tbd-padding;
+
+/**
+ * Input variables
+ */
+$--tbd-input-border-color: #DDD;
+$--tbd-input-border-color--focus: darken(#DDD, 10%);
+
+$--tbd-input-border-radius: $--tbd-padding-x2;
+
+$--tbd-input-padding: $--tbd-padding-x3;
+
+$--tbd-input-font-size: $--tbd-font-sz--md;
+
+$--tbd-input-shadow-color--focus: transparentize(#DDD, .9);
+$--tbd-input-shadow-size--focus: $--tbd-padding;

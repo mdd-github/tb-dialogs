@@ -1,0 +1,65 @@
+@import "../ui/variables";
+@import "../ui/shared";
+
+
+.layout {
+  @extend .f-col;
+  @extend .f-justify-start;
+  @extend .f-align-stretch;
+
+  &_header {
+    @extend .f-row;
+    @extend .f-justify-between;
+    @extend .f-align-center;
+    @extend .f-gap-md;
+
+    background-color: #fff;
+
+    padding: $--tbd-padding-x2 $--tbd-padding-x4;
+    box-shadow: $--tbd-card-shadow-size $--tbd-card-shadow-size $--tbd-card-shadow-color;
+    border-bottom: 1px solid $--tbd-card-border-color;
+
+    &-logo {
+      width: 160px;
+      object-fit: contain;
+    }
+
+    &-steps {
+      @extend .f-row;
+      @extend .f-align-center;
+      @extend .f-justify-center;
+      @extend .f-gap-lg;
+
+      flex: 1;
+
+      list-style: none;
+
+      a {
+        text-decoration: none;
+        color: $--tbd-color-text;
+      }
+    }
+
+    &-actions {
+      @extend .f-row;
+      @extend .f-align-center;
+      @extend .f-justify-center;
+      @extend .f-gap-sm;
+
+      list-style: none;
+    }
+  }
+
+  &_body {
+    height: 100%;
+    max-height: calc(100% - $--tbd-card-padding * 2);
+    flex: 1;
+
+    & > * {
+      flex: 1;
+
+      height: calc(100% - $--tbd-padding-x8 * 2);
+      margin: $--tbd-padding-x8 $--tbd-padding-x12;
+    }
+  }
+}

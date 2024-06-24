@@ -1,0 +1,80 @@
+@import 'variables';
+
+.base-button {
+  margin: 0;
+  padding: 0;
+
+  background-color: #fff;
+  color: #000;
+  outline: none;
+  border: none;
+  border-radius: 0;
+
+  cursor: pointer;
+}
+
+.button {
+  @extend .base-button;
+
+  padding: $--tbd-button-padding-md calc($--tbd-button-padding-md * 2);
+  border-radius: $--tbd-button-border-radius-md;
+
+  font-size: $--tbd-font-sz--md;
+  background-color: $--tbd-button-bg-color-primary;
+
+  &:hover {
+    background-color: $--tbd-button-bg-color-primary--hover;
+  }
+
+  &:active {
+    background-color: $--tbd-button-bg-color-primary--active;
+  }
+
+  &:disabled {
+    cursor: default;
+    color: $--tbd-color-gray;
+    background-color: $--tbd-color-lightgray;
+  }
+}
+
+.button-lg {
+  @extend .button;
+
+  padding: $--tbd-button-padding-lg calc($--tbd-button-padding-lg * 2);
+  border-radius: $--tbd-button-border-radius-lg;
+
+  font-size: $--tbd-font-sz--lg;
+}
+
+.button-sm {
+  @extend .button;
+
+  padding: $--tbd-button-padding-sm calc($--tbd-button-padding-sm * 2);
+  border-radius: $--tbd-button-border-radius-sm;
+
+  font-size: $--tbd-font-sz--sm;
+}
+
+.button-secondary {
+  @extend .button;
+
+  background-color: $--tbd-button-bg-color-secondary;
+
+  &:hover {
+    background-color: $--tbd-button-bg-color-secondary--hover;
+  }
+
+  &:active {
+    background-color: $--tbd-button-bg-color-secondary--active;
+  }
+}
+
+.button-secondary-lg {
+  @extend .button-lg;
+  @extend .button-secondary;
+}
+
+.button-secondary-sm {
+  @extend .button-sm;
+  @extend .button-secondary;
+}

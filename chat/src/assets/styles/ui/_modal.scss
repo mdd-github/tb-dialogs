@@ -1,0 +1,57 @@
+@import "../ui/variables";
+@import "../ui/shared";
+
+.modal-overlay {
+  position: fixed;
+
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  background-color: transparentize($--tbd-color-gray, .2);
+}
+
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  min-width: 500px;
+  max-width: 80%;
+
+  min-height: 250px;
+  max-height: 80%;
+
+  padding-top: calc($--tbd-card-padding + $--tbd-padding-x2); // Тупой костыль, чтобы отступ сверху красивенький был
+
+  &_content {
+    overflow-y: scroll;
+
+    /* TODO: кастомизировать скроллбар, чтобы он не был ебаным уёбищем */
+  }
+
+  &_header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: $--tbd-card-padding;
+
+    padding: $--tbd-padding-x2;
+
+    @extend .f-row, .f-justify-between, .f-align-center;
+
+    &-title {
+      @extend .text-center;
+      padding-left: $--tbd-padding-x6; // Close icon width
+      font-weight: 600;
+      flex: 1;
+    }
+
+    &-close {
+      cursor: pointer;
+    }
+  }
+}

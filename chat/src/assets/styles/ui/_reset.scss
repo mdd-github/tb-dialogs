@@ -1,0 +1,29 @@
+@use 'variables';
+
+@font-face {
+  font-family: 'TinkoffSans';
+  src: url('../../fonts/TinkoffSans.otf');
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+
+  font-size: $--tbd-font-sz--md;
+  font-family: 'TinkoffSans', sans-serif;
+  color: $--tbd-color-text;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p{
+  margin: 0;
+}
