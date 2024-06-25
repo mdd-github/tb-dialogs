@@ -3,9 +3,11 @@ import React from "react";
 import TBankLogo from '../../assets/images/tinkoff-logo.svg';
 import {Link} from "react-router-dom";
 import {useSaveDialog} from "../../hooks/useSaveDialog";
+import { useExportDialog } from "../../hooks/useExportDialog";
 
 export const NavLayout = ({children, title}) => {
     const { save } = useSaveDialog();
+    const { exportDialog } = useExportDialog();
 
     return (
         <div className="layout">
@@ -19,9 +21,6 @@ export const NavLayout = ({children, title}) => {
                     <li>
                         <Link to="/messages">Сообщения диалога</Link>
                     </li>
-                    <li>
-                        <Link to="/check">Проверка диалога</Link>
-                    </li>
                 </ul>
 
                 <ul className="layout_header-actions">
@@ -29,7 +28,7 @@ export const NavLayout = ({children, title}) => {
                         <button className="button-secondary-sm" onClick={save}>Сохранить в файл</button>
                     </li>
                     <li>
-                        <button className="button-sm">Сгенерировать ZIP</button>
+                        <button className="button-sm" onClick={exportDialog}>Сгенерировать ZIP</button>
                     </li>
                 </ul>
             </header>
